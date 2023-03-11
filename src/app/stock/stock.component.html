@@ -1,0 +1,41 @@
+<article >
+  <header>
+    <h3>{{stockDetails.title}}</h3>
+    <div class="view">
+      <a href="javascript:;" [ngClass]="{'active': activeView === 'table'}" (click)="setActiveView('table')"><fa-icon [icon]="tableIcon"></fa-icon></a>
+      <a href="javascript:;" [ngClass]="{'active': activeView === 'chart'}" (click)="setActiveView('chart')"><fa-icon [icon]="chartIcon"></fa-icon></a>
+    </div>
+  </header>
+  <div class="container" *ngIf="stockDetails.series && stockDetails.series.length">
+    <table  cellpadding="0" cellspacing="0" *ngIf="activeView==='table'">
+      <thead>
+        <th>Date</th>
+        <th>Open</th>
+        <th>Close</th>
+        <th>High</th>
+        <th>Low</th>
+        <th>Perf.</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of stockDetails.series">
+          <td>{{row.date}}</td>
+          <td>{{row.open}}</td>
+          <td>{{row.close}}</td>
+          <td>{{row.high}}</td>
+          <td>{{row.low}}</td>
+          <td [ngClass]="row.status">
+            <fa-icon *ngIf="row.status==='positive'" [icon]="positiveIcon"></fa-icon>
+            <fa-icon *ngIf="row.status==='negative'" [icon]="negativeIcon"></fa-icon>
+            {{row.performance}} %
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="activeView==='chart'">
+      <app-chart [chartDetails]="stockDetails.series"></app-chart>
+    </div>
+  </div>
+  <div class="loading" *ngIf="isLoading">
+    <fa-icon #icon [icon]="loadingIcon" [spin]="true"></fa-icon>
+  </div>
+</article>
