@@ -1,10 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { StockService } from '../common/stock.service';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { faSync } from '@fortawesome/free-solid-svg-icons';
-import { faTable } from '@fortawesome/free-solid-svg-icons';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faArrowDown, faSync, faTable, faChartLine } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-stock',

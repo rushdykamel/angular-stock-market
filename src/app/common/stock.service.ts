@@ -12,8 +12,8 @@ export class StockService {
 
   getStock(symbol: string): any {
     return this.http.get(`assets/query.json`)
-    // uncomment this line (and comment above) if you would like to return real data (it will be a bit slower)
-    //return this.http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&apikey=demo`)
+    // uncomment below line (and comment above) if you would like to return real data (it will be a bit slower)
+    // return this.http.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=full&apikey=demo`)
     .pipe(map((data:any) => {
       let modifiedResponse = {
         metadata: data['Meta Data'],
