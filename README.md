@@ -7,6 +7,7 @@ Thanks to https://www.alphavantage.co/ for the API
 The app shows real-life stock data for 8 companies, shown in tables and charts (using chart.js and ng2-chart)
 
 For performance, it loads static data for all companies, change that by modifying stock.service.ts (uncommenting/commenting first lines in getStock())
+
 ---
 
 ## How to run
